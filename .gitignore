@@ -1,0 +1,8 @@
+.build/
+.swiftpm/
+QuickTranslate.app/
+*.xcodeproj/
+xcuserdata/
+DerivedData/
+.DS_Store
+quicktranslate_debug.log
