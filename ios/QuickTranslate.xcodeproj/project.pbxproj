@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000001 /* QuickTranslateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001 /* QuickTranslateApp.swift */; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002 /* ContentView.swift */; };
+		A1000003 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003 /* KeychainHelper.swift */; };
+		A1000004 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004 /* TranslationService.swift */; };
+		A1000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000005 /* Assets.xcassets */; };
+		A1000006 /* TranslateClipboardIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008 /* TranslateClipboardIntent.swift */; };
+		A2000001 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000001 /* ActionViewController.swift */; };
+		A2000002 /* TranslateActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000002 /* TranslateActionView.swift */; };
+		A2000004 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003 /* KeychainHelper.swift */; };
+		A2000005 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004 /* TranslationService.swift */; };
+		A3000001 /* TranslateAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D2000000 /* TranslateAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2000001;
+			remoteInfo = TranslateAction;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1000001 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A3000001 /* TranslateAction.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B1000001 /* QuickTranslateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTranslateApp.swift; sourceTree = "<group>"; };
+		B1000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1000003 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		B1000004 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		B1000005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1000007 /* QuickTranslate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickTranslate.entitlements; sourceTree = "<group>"; };
+		B1000008 /* TranslateClipboardIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateClipboardIntent.swift; sourceTree = "<group>"; };
+		B2000001 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		B2000002 /* TranslateActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateActionView.swift; sourceTree = "<group>"; };
+		B2000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2000005 /* TranslateAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TranslateAction.entitlements; sourceTree = "<group>"; };
+		D1000000 /* QuickTranslate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickTranslate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2000000 /* TranslateAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TranslateAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G1000000 = {
+			isa = PBXGroup;
+			children = (
+				G1000001 /* QuickTranslate */,
+				G2000001 /* TranslateAction */,
+				B1000007 /* QuickTranslate.entitlements */,
+				B2000005 /* TranslateAction.entitlements */,
+				G9000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G1000001 /* QuickTranslate */ = {
+			isa = PBXGroup;
+			children = (
+				B1000001 /* QuickTranslateApp.swift */,
+				B1000002 /* ContentView.swift */,
+				B1000008 /* TranslateClipboardIntent.swift */,
+				G1000002 /* Shared */,
+				B1000005 /* Assets.xcassets */,
+				B1000006 /* Info.plist */,
+			);
+			path = QuickTranslate;
+			sourceTree = "<group>";
+		};
+		G1000002 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B1000003 /* KeychainHelper.swift */,
+				B1000004 /* TranslationService.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		G2000001 /* TranslateAction */ = {
+			isa = PBXGroup;
+			children = (
+				B2000001 /* ActionViewController.swift */,
+				B2000002 /* TranslateActionView.swift */,
+				B2000004 /* Info.plist */,
+			);
+			path = TranslateAction;
+			sourceTree = "<group>";
+		};
+		G9000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1000000 /* QuickTranslate.app */,
+				D2000000 /* TranslateAction.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1000001 /* QuickTranslate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H1000001 /* Build configuration list for PBXNativeTarget "QuickTranslate" */;
+			buildPhases = (
+				F3000001 /* Sources */,
+				F2000001 /* Frameworks */,
+				F4000001 /* Resources */,
+				F1000001 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2000001 /* PBXTargetDependency */,
+			);
+			name = QuickTranslate;
+			productName = QuickTranslate;
+			productReference = D1000000 /* QuickTranslate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2000001 /* TranslateAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H2000001 /* Build configuration list for PBXNativeTarget "TranslateAction" */;
+			buildPhases = (
+				F3000002 /* Sources */,
+				F2000002 /* Frameworks */,
+				F4000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TranslateAction;
+			productName = TranslateAction;
+			productReference = D2000000 /* TranslateAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					D1000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					D2000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = H3000001 /* Build configuration list for PBXProject "QuickTranslate" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ja,
+				Base,
+			);
+			mainGroup = G1000000;
+			productRefGroup = G9000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1000001 /* QuickTranslate */,
+				D2000001 /* TranslateAction */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000005 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001 /* QuickTranslateApp.swift in Sources */,
+				A1000002 /* ContentView.swift in Sources */,
+				A1000003 /* KeychainHelper.swift in Sources */,
+				A1000004 /* TranslationService.swift in Sources */,
+				A1000006 /* TranslateClipboardIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2000001 /* ActionViewController.swift in Sources */,
+				A2000002 /* TranslateActionView.swift in Sources */,
+				A2000004 /* KeychainHelper.swift in Sources */,
+				A2000005 /* TranslationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2000001 /* TranslateAction */;
+			targetProxy = C1000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		J1000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		J1000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		J2000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuickTranslate.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54A669T722;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = QuickTranslate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quicktranslate.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		J2000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuickTranslate.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54A669T722;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = QuickTranslate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quicktranslate.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		J3000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TranslateAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54A669T722;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TranslateAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quicktranslate.ios.TranslateAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		J3000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TranslateAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54A669T722;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TranslateAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quicktranslate.ios.TranslateAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		H1000001 /* Build configuration list for PBXNativeTarget "QuickTranslate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				J2000001 /* Debug */,
+				J2000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		H2000001 /* Build configuration list for PBXNativeTarget "TranslateAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				J3000001 /* Debug */,
+				J3000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		H3000001 /* Build configuration list for PBXProject "QuickTranslate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				J1000001 /* Debug */,
+				J1000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1000000 /* Project object */;
+}

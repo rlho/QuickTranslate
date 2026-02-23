@@ -2,6 +2,7 @@
 .swiftpm/
 QuickTranslate.app/
 *.xcodeproj/
+!ios/QuickTranslate.xcodeproj/
 xcuserdata/
 DerivedData/
 .DS_Store
