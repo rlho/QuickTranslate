@@ -42,7 +42,7 @@ class HotkeyManager {
         let hotkeyID = EventHotKeyID(signature: fourCharCode("htky"), id: 1)
 
         RegisterEventHotKey(
-            UInt32(kVK_ANSI_T),
+            UInt32(kVK_ANSI_O),
             UInt32(cmdKey | shiftKey),
             hotkeyID,
             GetApplicationEventTarget(),

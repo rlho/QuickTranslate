@@ -1,4 +1,5 @@
 import SwiftUI
+import AppIntents
 
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -53,12 +54,55 @@ struct ContentView: View {
                     .disabled(apiKey.isEmpty)
                 }
 
+                Section(header: Text("セットアップ")) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("1. ショートカットを作成")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                        Text("ショートカットアプリで以下の3ステップを追加:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        VStack(alignment: .leading, spacing: 4) {
+                            Label("クリップボードを取得", systemImage: "1.circle.fill")
+                            Label("テキストを翻訳（QuickTranslate）", systemImage: "2.circle.fill")
+                            Label("クリップボードにコピー", systemImage: "3.circle.fill")
+                        }
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 4)
+
+                    Button(action: openShortcutsApp) {
+                        HStack {
+                            Image(systemName: "plus.app")
+                            Text("ショートカットアプリを開く")
+                        }
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("2. 背面タップに割り当て")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                        Text("設定 → アクセシビリティ → タッチ → 背面タップ → ダブルタップ → 作成したショートカットを選択")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 4)
+
+                    Button(action: openBackTapSettings) {
+                        HStack {
+                            Image(systemName: "hand.tap")
+                            Text("背面タップ設定を開く")
+                        }
+                    }
+                }
+
                 Section(header: Text("使い方")) {
                     VStack(alignment: .leading, spacing: 16) {
                         StepRow(number: 1, text: "翻訳したいテキストをコピー")
                         StepRow(number: 2, text: "iPhoneの背面をダブルタップ")
-                        StepRow(number: 3, text: "翻訳結果が表示される")
-                        StepRow(number: 4, text: "「コピー」ボタンで結果をコピー")
+                        StepRow(number: 3, text: "翻訳結果がクリップボードに自動コピーされる")
+                        StepRow(number: 4, text: "そのままペーストで使える")
                     }
                     .padding(.vertical, 8)
                 }
@@ -97,6 +141,18 @@ struct ContentView: View {
     private func loadAPIKey() {
         if let key = KeychainHelper.loadAPIKey() {
             apiKey = key
+        }
+    }
+
+    private func openShortcutsApp() {
+        if let url = URL(string: "shortcuts://create-shortcut") {
+            UIApplication.shared.open(url)
+        }
+    }
+
+    private func openBackTapSettings() {
+        if let url = URL(string: "App-prefs:ACCESSIBILITY&path=TOUCH/BACK_TAP") {
+            UIApplication.shared.open(url)
         }
     }
 

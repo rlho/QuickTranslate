@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         titleItem.isEnabled = false
         menu.addItem(titleItem)
 
-        let shortcutItem = NSMenuItem(title: "⌘⇧T to translate selected text", action: nil, keyEquivalent: "")
+        let shortcutItem = NSMenuItem(title: "⌘⇧O to translate selected text", action: nil, keyEquivalent: "")
         shortcutItem.isEnabled = false
         menu.addItem(shortcutItem)
 
@@ -70,33 +70,66 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Hotkey Handler
 
     func handleHotkey() {
+        let axTrusted = AXIsProcessTrusted()
+
+        // Try Accessibility API first (doesn't touch clipboard)
+        if axTrusted, let text = getSelectedTextViaAccessibility(),
+           !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            translate(text)
+            return
+        }
+
+        // Fallback: simulate Cmd+C
         let pasteboard = NSPasteboard.general
         let previousChangeCount = pasteboard.changeCount
 
-        simulateCopy()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.simulateCopy()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            let newContent = pasteboard.string(forType: .string)
-            let changed = pasteboard.changeCount != previousChangeCount
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                let newContent = pasteboard.string(forType: .string)
+                let changed = pasteboard.changeCount != previousChangeCount
 
-            if changed, let text = newContent, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                self.translate(text)
-            } else if let text = newContent, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                self.translate(text)
-            } else {
-                PopupWindow.showError("テキストを選択してから ⌘⇧T を押してください。")
+                if changed, let text = newContent, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    self.translate(text)
+                } else if !axTrusted {
+                    PopupWindow.showError("アクセシビリティ権限が必要です。\nシステム設定 → プライバシーとセキュリティ → アクセシビリティ で QuickTranslate を許可してください。")
+                } else {
+                    PopupWindow.showError("テキストを選択してから ⌘⇧O を押してください。")
+                }
             }
         }
     }
 
+    private func getSelectedTextViaAccessibility() -> String? {
+        let systemWide = AXUIElementCreateSystemWide()
+
+        var focusedApp: AnyObject?
+        guard AXUIElementCopyAttributeValue(systemWide, kAXFocusedApplicationAttribute as CFString, &focusedApp) == .success else {
+            return nil
+        }
+
+        var focusedElement: AnyObject?
+        guard AXUIElementCopyAttributeValue(focusedApp as! AXUIElement, kAXFocusedUIElementAttribute as CFString, &focusedElement) == .success else {
+            return nil
+        }
+
+        var selectedText: AnyObject?
+        guard AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextAttribute as CFString, &selectedText) == .success else {
+            return nil
+        }
+
+        return selectedText as? String
+    }
+
     private func simulateCopy() {
-        let source = CGEventSource(stateID: .combinedSessionState)
+        let source = CGEventSource(stateID: .privateState)
         let keyDown = CGEvent(keyboardEventSource: source, virtualKey: 0x08, keyDown: true)
         let keyUp = CGEvent(keyboardEventSource: source, virtualKey: 0x08, keyDown: false)
         keyDown?.flags = .maskCommand
         keyUp?.flags = .maskCommand
-        keyDown?.post(tap: .cgSessionEventTap)
-        keyUp?.post(tap: .cgSessionEventTap)
+        keyDown?.post(tap: .cgAnnotatedSessionEventTap)
+        keyUp?.post(tap: .cgAnnotatedSessionEventTap)
     }
 
     private func translate(_ text: String) {
@@ -127,7 +160,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let inputField = NSSecureTextField(frame: NSRect(x: 0, y: 0, width: 320, height: 24))
         inputField.placeholderString = "sk-..."
-        if let existing = UserDefaults.standard.string(forKey: "openai_api_key"), !existing.isEmpty {
+        let appDefaults = UserDefaults(suiteName: "com.quicktranslate.app")
+        if let existing = appDefaults?.string(forKey: "openai_api_key"), !existing.isEmpty {
             inputField.stringValue = existing
         }
         alert.accessoryView = inputField
@@ -139,7 +173,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if response == .alertFirstButtonReturn {
             let key = inputField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
             if !key.isEmpty {
-                UserDefaults.standard.set(key, forKey: "openai_api_key")
+                appDefaults?.set(key, forKey: "openai_api_key")
             }
         }
     }

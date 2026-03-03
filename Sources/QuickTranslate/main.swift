@@ -1,5 +1,6 @@
 import AppKit
 
+UserDefaults.standard.addSuite(named: "com.quicktranslate.app")
 let app = NSApplication.shared
 let delegate = AppDelegate()
 app.delegate = delegate

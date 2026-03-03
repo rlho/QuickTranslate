@@ -236,9 +236,16 @@ class TranslationService {
 
     /// Resolves the OpenAI API key from UserDefaults first, then environment variable.
     private func resolveAPIKey() -> String? {
-        // Try UserDefaults first
+        // Try app-specific defaults first
+        if let key = UserDefaults(suiteName: "com.quicktranslate.app")?.string(forKey: "openai_api_key"), !key.isEmpty {
+            let cleaned = key.components(separatedBy: .whitespacesAndNewlines).joined()
+            if !cleaned.isEmpty { return cleaned }
+        }
+
+        // Try standard defaults
         if let key = UserDefaults.standard.string(forKey: "openai_api_key"), !key.isEmpty {
-            return key
+            let cleaned = key.components(separatedBy: .whitespacesAndNewlines).joined()
+            if !cleaned.isEmpty { return cleaned }
         }
 
         // Fall back to environment variable
